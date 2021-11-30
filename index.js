@@ -1,5 +1,7 @@
 window.days = [0, 10, 0, 50, 10, 50, 200, 400, 40, 450, -10, 25, 320, 0, 80, 180, 750, 24, 99, 9, 400, 88, 1000, 25, 800, 2000, 0, 0, 0, 0, 0, 0, 0, 0, ];
 
+const params = new URLSearchParams(window.location.search);
+
 var name = 'Marius';
 if(params.has('name')){
     name = encodeURIComponent(params.get('name'));
@@ -8,7 +10,6 @@ document.getElementById('name').innerHTML = name;
 
 var today =  new Date().getDate();
 var sum = 0;
-const params = new URLSearchParams(window.location.search);
 var lastclick = params.get('lastclick');
 var opened = params.get('opened');
 var today = new Date().getDate();
