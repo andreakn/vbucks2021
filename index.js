@@ -6,7 +6,7 @@ var sum = 0;
 const params = new URLSearchParams(window.location.search);
 var day = params.get('day');
 
-today = 12;
+// today = 12;
 for(var i = 0; i < days.length; i++){
     var theDay = document.querySelector(`.day-${i}`);
     var checkbox = document.querySelector(`.day-${i} input[type=checkbox]`);
