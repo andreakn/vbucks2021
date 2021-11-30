@@ -7,6 +7,9 @@ const params = new URLSearchParams(window.location.search);
 var lastclick = params.get('lastclick');
 var opened = params.get('opened');
 var today = new Date().getDate();
+if(new Date().getMonth() != 12){
+    today = 0;
+}
 var fakeDay = '';
 if(params.has('d')){
     var stuff = parseInt(params.get('d'));
