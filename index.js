@@ -2,7 +2,7 @@ window.days = [0, 10, 0, 50, 10, 50, 200, 400, 40, 450, -10, 25, 320, 0, 80, 180
 
 const params = new URLSearchParams(window.location.search);
 
-var name = 'Marius';
+var name = '';
 if(params.has('name')){
     name = encodeURIComponent(params.get('name'));
 }
