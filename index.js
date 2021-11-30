@@ -4,7 +4,17 @@ window.days = [0, 10, 0, 50, 10, 50, 200, 400, 40, 450, -10, 25, 320, 0, 80, 180
 var today =  new Date().getDate();
 var sum = 0;
 const params = new URLSearchParams(window.location.search);
-var day = params.get('day');
+var lastclick = params.get('lastclick');
+var opened = params.get('opened');
+var today = new Date().getDate();
+var fakeDay = '';
+if(params.has('d')){
+    var stuff = parseInt(params.get('d'));
+    if(stuff !== undefined){
+        today = stuff;
+        fakeDay = stuff.toString();
+    }
+}
 
 // today = 12;
 for(var i = 0; i < days.length; i++){
@@ -24,18 +34,25 @@ for(var i = 0; i < days.length; i++){
         titleContainer.remove();
 
     }else if(i == today){
-        titleContainer.innerHTML = `<a href="index.html?day=${today}">${days[i]} V-bucks</h1>`;
-        if(day == today.toString()){
+        titleContainer.innerHTML = `<a href="index.html?lastclick=${today}&opened=${today}&d=${fakeDay}">${days[i]} V-bucks</h1>`;
+        if(lastclick == today.toString() ){
             checkbox.checked = true;
-            sum += days[today];
-            titleContainer.remove();
+            if(opened == today.toString()){
+                checkbox.disabled = true;
+                door.remove();
+                sum += days[today];
+                titleContainer.remove();
+            }
         }
     }
     else if(i > today){
         checkbox.remove();
         titleContainer.remove();
+        const capture = i;
         theDay.addEventListener('click', function(){
-            window.location.href = `index.html?cb=${new Date().getTime()}`;
+            if(new Date().getDate() == capture || window.hackedDay == capture){
+                window.location.href = `index.html?lastclick=${capture}`;
+            }
             });
     }    
 }
