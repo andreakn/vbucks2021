@@ -19,13 +19,12 @@ if(new Date().getMonth() != 11){
 var fakeDay = '';
 if(params.has('d')){
     var stuff = parseInt(params.get('d'));
-    if(stuff !== undefined && stuff !== NaN){
+    if(stuff){
         today = stuff;
         fakeDay = stuff.toString();
     }
 }
 
-// today = 12;
 for(var i = 0; i < days.length; i++){
     var theDay = document.querySelector(`.day-${i}`);
     var checkbox = document.querySelector(`.day-${i} input[type=checkbox]`);
