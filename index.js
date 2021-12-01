@@ -19,7 +19,7 @@ if(new Date().getMonth() != 11){
 var fakeDay = '';
 if(params.has('d')){
     var stuff = parseInt(params.get('d'));
-    if(stuff !== undefined){
+    if(stuff !== undefined && stuff !== NaN){
         today = stuff;
         fakeDay = stuff.toString();
     }
