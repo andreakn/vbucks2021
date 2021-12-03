@@ -1,18 +1,5 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "priceless-lovelace-506457.netlify",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "priceless-lovelace-506457.netlify",
-  "start_url": "/",
-  "theme_color": "#ffffff",
   "icons": [
-    {
-      "src": "/favicon.ico",
-      "type": "image/x-icon"
-    },
     {
       "src": "images/windows11/SmallTile.scale-100.png",
       "sizes": "71x71"
@@ -462,5 +449,4 @@
       "sizes": "1024x1024"
     }
   ]
-
 }
