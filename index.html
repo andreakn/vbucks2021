@@ -1,30 +1,4 @@
 <!DOCTYPE html>
-<script type="module">
-import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-const el = document.createElement('pwa-update');
-document.body.appendChild(el);
-</script>
-
-<script type="module">
-
-const CACHE = "pwabuilder-offline";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
-</script>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,6 +8,12 @@ workbox.routing.registerRoute(
   <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16" />
   <link rel="stylesheet" href="styles.css"> 
   <link rel="manifest" href="manifest.json" />
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
+  </script>
+  
 </head>
 <body>
   <div class="calendar-grid">
