@@ -2,7 +2,8 @@
   "icons": [
     {
       "src": "images/windows11/SmallTile.scale-100.png",
-      "sizes": "71x71"
+      "sizes": "71x71",
+	  "type": "image/png"
     },
     {
       "src": "images/windows11/SmallTile.scale-125.png",
@@ -322,7 +323,8 @@
     },
     {
       "src": "images/android/android-launchericon-512-512.png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+	  "type": "image/png"
     },
     {
       "src": "images/android/android-launchericon-192-192.png",
@@ -442,7 +444,8 @@
     },
     {
       "src": "images/ios/512.png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+	  "type": "image/png"
     },
     {
       "src": "images/ios/1024.png",
