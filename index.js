@@ -1,4 +1,4 @@
-window.days = [0, 10, 0, 50, 10, 50, 200, 400, 40, 450, -10, 25, 320, 0, 80, 180, 750, 24, 99, 9, 400, 88, 1000, 25, 800, 2000, 0, 0, 0, 0, 0, 0, 0, 0, ];
+window.days = [0, 10, 0, 50, 200, 50, 10, 400, 40, 450, -85, 25, 320, 0, 80, 180, 350, 24, 99, 9, 300, 88, 400, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, ];
 
 const params = new URLSearchParams(window.location.search);
 
@@ -10,7 +10,11 @@ document.getElementById('name').innerHTML = name;
 
 var today =  new Date().getDate();
 var sum = 0;
-var lastclick = params.get('lastclick');
+
+var lastClick = 0;
+if(localStorage.getItem('lastClick')){
+    lastClick = parseInt(localStorage.getItem('lastClick'));
+}
 var opened = params.get('opened');
 var today = new Date().getDate();
 if(new Date().getMonth() != 11){
@@ -24,7 +28,6 @@ if(params.has('d')){
         fakeDay = stuff.toString();
     }
 }
-
 for(var i = 0; i < days.length; i++){
     var theDay = document.querySelector(`.day-${i}`);
     var checkbox = document.querySelector(`.day-${i} input[type=checkbox]`);
@@ -42,8 +45,8 @@ for(var i = 0; i < days.length; i++){
         titleContainer.remove();
 
     }else if(i == today){
-        titleContainer.innerHTML = `<a href="index.html?lastclick=${today}&opened=${today}&d=${fakeDay}">${days[i]} V-bucks</h1>`;
-        if(lastclick == today.toString() ){
+        titleContainer.innerHTML = `<a onclick="registerClick('${today}')" href="index.html?lastclick=${today}&opened=${today}&d=${fakeDay}">${days[i]} V-bucks</h1>`;
+        if(lastClick == today.toString() ){
             checkbox.checked = true;
             if(opened == today.toString()){
                 checkbox.disabled = true;
@@ -65,8 +68,15 @@ for(var i = 0; i < days.length; i++){
     }    
 }
 
+function registerClick(day){
+    localStorage.setItem('lastClick', day);
+    window.location.href = `index.html?lastclick=${day}&opened=${day}`;
+}
+
 var sumHolder = document.querySelector('#vbucks');
 sumHolder.innerHTML = sum;
-
+if(sum >= 5000){
+    document.getElementById('sofar').innerHTML = '!!!';
+}
 
 
